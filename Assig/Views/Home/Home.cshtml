@@ -6,11 +6,16 @@
 
 <h2>Home</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="/Search/" style="padding-right:25px">
+    <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-autocomplete="both"/>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search">Search</i></button>
+</form>
+
 <table class="table">
     <tr>
+        <th>
+            <p></p>
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.MachineName)
         </th>
@@ -29,14 +34,14 @@
         <th>
             @Html.DisplayNameFor(model => model.City)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Available)
-        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            <img class="img-rounded" src=@item.ImageUrl alt=@item.MachineName  style="max-width:70px" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.MachineName)
         </td>
@@ -55,15 +60,6 @@
         <td>
             @Html.DisplayFor(modelItem => item.City)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Available)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MachineID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MachineID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MachineID })
-        </td>
     </tr>
 }
-
 </table>

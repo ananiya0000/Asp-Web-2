@@ -16,20 +16,29 @@ namespace Assig.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
         public ActionResult Home()
         {
-            var machines = _context.Machine.ToList();
+            var machines = _context.Machine.Where(temp=>temp.Available==true).ToList();
             return View(machines);
+        }
+        public ActionResult Search(string searchString)
+        {
+            var machines = _context.Machine.ToList();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                ViewBag.w = searchString;
+                var machineSearched = machines.Where(temp => temp.MachineName.Contains(searchString) || temp.Industry.Contains(searchString) && temp.Available==true).ToList();
+                return View("Home", machineSearched);
+            }
+            return View("Home",machines);
         }
         public ActionResult Create()
         {
@@ -68,6 +77,7 @@ namespace Assig.Controllers
             m.Price = ma.Price;
             m.Industry = ma.Industry;
             m.Available = ma.Available;
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         public ActionResult Personal()
@@ -75,6 +85,13 @@ namespace Assig.Controllers
             string userName=User.Identity.Name;
             var machine = _context.Machine.Where(temp => temp.Email==userName).ToList();
             return View(machine);
+        }
+        public ActionResult Rented(int id)
+        {
+            var machine = _context.Machine.Where(temp => temp.MachineID == id).FirstOrDefault();
+            machine.Available = false;
+            _context.SaveChanges();
+            return RedirectToAction("Home");
         }
     }
 }

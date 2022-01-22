@@ -198,6 +198,10 @@
     <Compile Include="Migrations\202201221530430_fifth.designer.cs">
       <DependentUpon>202201221530430_fifth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201221802149_sixth.cs" />
+    <Compile Include="Migrations\202201221802149_sixth.designer.cs">
+      <DependentUpon>202201221802149_sixth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -262,12 +266,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Personal.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Personal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201221530430_fifth.resx">
       <DependentUpon>202201221530430_fifth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221802149_sixth.resx">
+      <DependentUpon>202201221802149_sixth.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
