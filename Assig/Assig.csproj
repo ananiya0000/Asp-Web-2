@@ -182,12 +182,27 @@
     <Compile Include="Migrations\202201211035265_first.designer.cs">
       <DependentUpon>202201211035265_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201221221574_third.cs" />
+    <Compile Include="Migrations\202201221221574_third.designer.cs">
+      <DependentUpon>202201221221574_third.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201221224295_third1.cs" />
+    <Compile Include="Migrations\202201221224295_third1.designer.cs">
+      <DependentUpon>202201221224295_third1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201221443387_fivth.cs" />
+    <Compile Include="Migrations\202201221443387_fivth.designer.cs">
+      <DependentUpon>202201221443387_fivth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201221530430_fifth.cs" />
+    <Compile Include="Migrations\202201221530430_fifth.designer.cs">
+      <DependentUpon>202201221530430_fifth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Machine.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -247,12 +262,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Personal.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
-    <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
-    <Content Include="Views\Home\Personal.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,6 +291,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201211035265_first.resx">
       <DependentUpon>202201211035265_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221221574_third.resx">
+      <DependentUpon>202201221221574_third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221224295_third1.resx">
+      <DependentUpon>202201221224295_third1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221443387_fivth.resx">
+      <DependentUpon>202201221443387_fivth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221530430_fifth.resx">
+      <DependentUpon>202201221530430_fifth.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

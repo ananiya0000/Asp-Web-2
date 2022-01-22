@@ -39,33 +39,32 @@ namespace Assig.Controllers
         public ActionResult Create(Machine m)
         {
             string userName = User.Identity.Name;
-            m.OwnerEmail = userName;
+            m.Email = userName;
             _context.Machine.Add(m);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
         public ActionResult Details(int id)
         {
-            var ma = _context.Machine.Where(temp => temp.MachineId == id).FirstOrDefault();
+            var ma = _context.Machine.Where(temp => temp.MachineID == id).FirstOrDefault();
             return View(ma);
         }
         public ActionResult Delete(int id)
         {
-            var ma = _context.Machine.Where(temp => temp.MachineId == id).FirstOrDefault();
+            var ma = _context.Machine.Where(temp => temp.MachineID == id).FirstOrDefault();
             _context.Machine.Remove(ma);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
         public ActionResult Edit(int id)
         {
-            var ma = _context.Machine.Where(temp => temp.MachineId == id).FirstOrDefault();
+            var ma = _context.Machine.Where(temp => temp.MachineID == id).FirstOrDefault();
             return View(ma);
         }
         [HttpPost]
         public ActionResult Edit(Machine ma)
         {
-            var m = _context.Machine.Where(temp => temp.MachineId == ma.MachineId).FirstOrDefault();
-            m.Name = ma.Name;
+            var m = _context.Machine.Where(temp => temp.MachineID == ma.MachineID).FirstOrDefault();
             m.Price = ma.Price;
             m.Industry = ma.Industry;
             m.Available = ma.Available;
@@ -74,7 +73,7 @@ namespace Assig.Controllers
         public ActionResult Personal()
         {
             string userName=User.Identity.Name;
-            var machine = _context.Machine.Where(temp => temp.OwnerEmail==userName).ToList();
+            var machine = _context.Machine.Where(temp => temp.Email==userName).ToList();
             return View(machine);
         }
     }

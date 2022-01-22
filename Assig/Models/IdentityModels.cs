@@ -20,10 +20,9 @@ namespace Assig.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Machine> Machine { get; set; }
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("machinerentalsystem", throwIfV1Schema: false)
         {
         }
 

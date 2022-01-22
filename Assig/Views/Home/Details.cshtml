@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.MachineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MachineName)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Price)
         </dt>
 
@@ -27,11 +35,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OwnerEmail)
+            @Html.DisplayNameFor(model => model.Email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OwnerEmail)
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
 
         <dt>
@@ -50,25 +66,9 @@
             @Html.DisplayFor(model => model.Available)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Approved)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Approved)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MachineId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MachineID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

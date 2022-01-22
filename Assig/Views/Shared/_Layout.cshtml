@@ -28,7 +28,8 @@
                 @Html.Partial("_LoginPartial")
                 @if (User.Identity.IsAuthenticated)
                 {
-                    @Html.ActionLink("Post","Create","Home")
+                    @Html.ActionLink("Post", "Create", "Home")
+                    @Html.ActionLink("Personal", "Personal", "Home")
                 }
             </div>
         </div>
