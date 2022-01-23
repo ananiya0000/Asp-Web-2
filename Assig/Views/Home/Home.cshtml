@@ -4,62 +4,48 @@
     ViewBag.Title = "Home";
 }
 
-<h2>Home</h2>
+<div class="mt-1">.</div>
 
-<form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="/Search/" style="padding-right:25px">
-    <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-autocomplete="both"/>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search">Search</i></button>
-</form>
+<!-- HERO SECTION-->
+<section class="hero hero--video">
+    <div style="background-repeat:no-repeat; background-size:cover; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrCFzuhoI6CS_Vf6kW5spCC3USqRKv3uuPFg&usqp=CAU)" s class="p-5">
+        <div class="text-center">
+            <h5 > ETRENT</h5>
+            <p> RENT AND LIST MACHINARY EASILY</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="/Search/" style="padding-right:25px">
+                <div class="d-flex">
+                    <input name="searchString" type="text" class="form-control" placeholder="Search for a machine..." aria-autocomplete="both" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search">Search</i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+        
+  
+</section>
 
-<table class="table">
-    <tr>
-        <th>
-            <p></p>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MachineName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Industry)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th></th>
-    </tr>
+<h2 class="my-4 text-center"> Machines for Rent</h2>
+<div class="row d-flex justify-content-center">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <img class="img-rounded" src=@item.ImageUrl alt=@item.MachineName  style="max-width:70px" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MachineName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Industry)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-    </tr>
-}
-</table>
+
+    @foreach (var item in Model)
+    {
+
+        <div class="card mx-2 mb-2 col-md-5 col-lg-5 col-sm-2 cursor-pointer" style="width: 18rem;">
+            <img src="https://www.thebalancesmb.com/thmb/IKSdhemuLnxl1GZ0hWYUesJ7ozw=/640x640/smart/filters:no_upscale()/escavation-921233_960_720-57a2715c3df78c327648cd18.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">   @Html.DisplayFor(modelItem => item.MachineName)</h5>
+                <p class="card-text"> @Html.DisplayFor(modelItem => item.PhoneNumber)</p>
+                <p class="card-footer"> @Html.DisplayFor(modelItem => item.Price) br / Month</p>
+                <a href="/Home/Details/@item.MachineID" class="stretched-link"></a>
+            </div>
+        </div>
+    
+    }
+
+</div>
+
+
