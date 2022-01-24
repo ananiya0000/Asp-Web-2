@@ -9,7 +9,7 @@
 
 </head>
 <body>
-
+    <!-- HEADER SECTION-->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
@@ -28,72 +28,85 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
             </button>
 
 
-                 <div class="collapse navbar-collapse" id="navbar4">
-                     <ul class="navbar-nav mr-auto pl-lg-4">
-                         <li class="nav-item px-lg-2 active"> <a class="nav-link" href="/Home/home"> <span class="d-inline-block d-lg-none icon-width"><i class="fas fa-home"></i></span>Home</a> </li>
+            <div class="collapse navbar-collapse" id="navbar4">
+                <ul class="navbar-nav mr-auto pl-lg-4">
+                    <li class="nav-item px-lg-2 active"> <a class="nav-link" href="/Home/home"> <span class="d-inline-block d-lg-none icon-width"><i class="fas fa-home"></i></span>Home</a> </li>
 
-                         <li class="nav-item px-lg-2"> <a class="nav-link" href="/home/about"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>About</a> </li>
-                         <li class="nav-item px-lg-2"> <a class="nav-link" href="/home/contact"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-envelope"></i></span>Contact</a> </li>
-                     </ul>
-                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item px-lg-2"> <a class="nav-link" href="/home/about"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>About</a> </li>
+                    <li class="nav-item px-lg-2"> <a class="nav-link" href="/home/contact"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-envelope"></i></span>Contact</a> </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
 
-                         @Html.Partial("_LoginPartial")
-                     </ul>
-                    
-                 </div>
+                    @Html.Partial("_LoginPartial")
+                </ul>
+
+            </div>
         </div>
     </nav>
 
-    @*<nav class="navbar navbar-expand-md navbar-light  bg-light d-flex flex-row  justify-content-between">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav align-items-center">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link text-decoration-none">@Html.ActionLink("Home", "Home", "Home")</a>
-                <a class="nav-item nav-link" href="#">@Html.ActionLink("About", "About", "Home")</a>
-                <a class="nav-item nav-link" href="#">@Html.ActionLink("Contact", "Contact", "Home")</a>
-                @Html.Partial("_LoginPartial")
-            </div>
-
-        </div>
-    </nav>*@
-
-
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Home", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        @Html.ActionLink("Post", "Create", "Home")
-                        @Html.ActionLink("Personal", "Personal", "Home")
-                    }
-                </div>
-            </div>
-        </div>*@
-    <div class="container body-content">
+    <div class="">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        
+            <div class="mt-5">
+                <!-- Footer -->
+                <footer class="text-center text-white" style="background-color: #808080">
+                
+                    <div class="container">
+                     
+                        <section class="mt-5">
+                         
+                            <div class="row text-center d-flex justify-content-center pt-5">
+                                
+                                <div class="col-md-2">
+                                    <h6 class="text-uppercase font-weight-bold">
+                                        <a href="/Home/About" class="text-white">About us</a>
+                                    </h6>
+                                </div>
+                      
+                                <div class="col-md-2">
+                                    <h6 class="text-uppercase font-weight-bold">
+                                        <a href="/Home/Home" class="text-white">Machines</a>
+                                    </h6>
+                                </div>
+                              
+                                <div class="col-md-2">
+                                    <h6 class="text-uppercase font-weight-bold">
+                                        <a href="/Home/Contact" class="text-white">Contact</a>
+                                    </h6>
+                                </div>
+                              
+                             
+                            </div>
+                       
+                        </section>
+                      
+
+                        <hr class="my-5" />
+
+                        <section class="mb-5">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
+                                    <p>
+                                        Easily view available machinary for rent and list machinary you want to rent easily
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <div class="text-center p-3"
+                         style="background-color: rgba(0, 0, 0, 0.2)">
+                        © 2022 Copyright: ETRENT
+                        
+                    </div>
+           
+                </footer>
+                <!-- Footer -->
+            </div>
+       
     </div>
 
     @Scripts.Render("~/bundles/jquery")
