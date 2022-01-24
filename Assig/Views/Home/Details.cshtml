@@ -4,79 +4,128 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Machine</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MachineName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MachineName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+<h2 class="mt-5 mb-5 text-center text-capitalize"> @Html.DisplayFor(model => model.MachineName)</h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Industry)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Industry)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Available)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Available)
-        </dd>
-
-    </dl>
+<div class="card mb-3" style="max-width: 1000px; margin: auto;">
+    <div class="row no-gutters">
+        <div class="col-md-5">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://www.thebalancesmb.com/thmb/IKSdhemuLnxl1GZ0hWYUesJ7ozw=/640x640/smart/filters:no_upscale()/escavation-921233_960_720-57a2715c3df78c327648cd18.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.thebalancesmb.com/thmb/IKSdhemuLnxl1GZ0hWYUesJ7ozw=/640x640/smart/filters:no_upscale()/escavation-921233_960_720-57a2715c3df78c327648cd18.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.thebalancesmb.com/thmb/IKSdhemuLnxl1GZ0hWYUesJ7ozw=/640x640/smart/filters:no_upscale()/escavation-921233_960_720-57a2715c3df78c327648cd18.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card-body">
+                <p class="card-text">Dumb Truck.</p>
+                <h5 class="card-title"> @Html.DisplayFor(model => model.MachineName)</h5>
+                <p class="card-text">2008.</p>
+                <h4 class="card-text">PRICE:  @Html.DisplayFor(model => model.Price)/ Month</h4>
+                <p class="card-text">CITY:   @Html.DisplayFor(model => model.City) </p>
+                <p class="card-text">SELLER PHONE NUMBER:  @Html.DisplayFor(model => model.PhoneNumber) </p>
+                <p class="card-text">SELLER PHONE EMAIL:  @Html.DisplayFor(model => model.Email) </p>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MachineID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@*<div>
+        <h4>Machine</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MachineName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MachineName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Industry)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Industry)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImageUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Available)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Available)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MachineID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
