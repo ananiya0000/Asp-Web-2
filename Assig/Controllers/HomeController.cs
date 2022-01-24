@@ -12,7 +12,6 @@ namespace Assig.Controllers
         {
             return View();
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -51,7 +50,7 @@ namespace Assig.Controllers
             m.Email = userName;
             _context.Machine.Add(m);
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Home");
         }
         public ActionResult Details(int id)
         {
@@ -63,7 +62,7 @@ namespace Assig.Controllers
             var ma = _context.Machine.Where(temp => temp.MachineID == id).FirstOrDefault();
             _context.Machine.Remove(ma);
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Home");
         }
         public ActionResult Edit(int id)
         {
@@ -78,7 +77,7 @@ namespace Assig.Controllers
             m.Industry = ma.Industry;
             m.Available = ma.Available;
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Home");
         }
         public ActionResult Personal()
         {
@@ -92,6 +91,17 @@ namespace Assig.Controllers
             machine.Available = false;
             _context.SaveChanges();
             return RedirectToAction("Home");
+        }
+        public ActionResult Catagory(string searchString)
+        {
+            var machines = _context.Machine.ToList();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                ViewBag.w = searchString;
+                var machineSearched = machines.Where(temp =>  temp.Industry.Contains(searchString) && temp.Available == true).ToList();
+                return View("Home", machineSearched);
+            }
+            return View("Home", machines);
         }
     }
 }

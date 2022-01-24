@@ -36,10 +36,13 @@
     <div style="width: 900px; padding: 30px" class="">
         <h3 style="color: darkgray; margin-bottom: 10px" > Category</h3>
         <div class="d-flex flex-column">
-            <button style="margin-left: 30px" type="button" class="btn btn-outline-secondary mb-1">All Category</button>
-            <button  style="margin-left: 30px" type="button" class="btn btn-outline-secondary mb-1">TRACTOR</button>
-            <button  style="margin-left: 30px" type="button" class="btn btn-outline-secondary mb-1">ESCAVATOR</button>
-            <button  style="margin-left: 30px" type="button" class="btn btn-outline-secondary mb-1 ">DUMB TRUCK</button>
+            <a class="btn-outline-secondary mb-1" style="margin-left: 30px" href="/Home/Catagory/?searchString=">All Catagories</a>
+            <a class="btn-outline-secondary mb-1" style="margin-left: 30px" href="/Home/Catagory/?searchString=Tra">Tractor</a>
+            <a class="btn-outline-secondary mb-1" style="margin-left: 30px" href="/Home/Catagory/?searchString=Ex">Excavator</a>
+            <a class="btn-outline-secondary mb-1" style="margin-left: 30px" href="/Home/Catagory/?searchString=Dum">Dumb Truck</a>
+            @*<button style="margin-left: 30px" type="button" class="btn btn-outline-secondary mb-1">TRACTOR</button>
+            <button style="margin-left: 30px" type="button" class="btn btn-outline-secondary mb-1">ESCAVATOR</button>
+            <button style="margin-left: 30px" type="button" class="btn btn-outline-secondary mb-1 ">DUMB TRUCK</button>*@
         </div>
 
        
@@ -57,7 +60,7 @@
 
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <p class="card-text">Dumb Truck.</p>
+                            <p class="card-text">@item.Industry</p>
                             <h5 class="card-title">@item.MachineName</h5>
                             <p class="card-text">2008.</p>
                             <h4 class="card-text">ETB @item.Price / Month</h4>
