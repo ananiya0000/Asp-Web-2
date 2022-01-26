@@ -14,6 +14,7 @@ namespace Assig.Models
         public string MachineName { get; set; }
         public double Price { get; set; }
         public string Industry { get; set; }
+        public string Catagory { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string City { get; set; }

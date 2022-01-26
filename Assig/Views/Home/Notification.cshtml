@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Assig.Models.Notification>
+
+@{
+    ViewBag.Title = "Notification";
+}
+
+<h2>Notification</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerEmail)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MachineID)
+        </th>*@
+        <th>
+            MachineName
+        </th>
+        <th>
+            PhoneNumber
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CustomerEmail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OwnerEmail)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.MachineID)
+
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Machine.MachineName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Machine.PhoneNumber)
+    </td>
+</tr>
+}
+
+</table>
+

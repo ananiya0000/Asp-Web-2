@@ -43,13 +43,17 @@
         </div>
         <div class="col-md-7">
             <div class="card-body">
-                <p class="card-text">@ @Html.DisplayFor(model => model.Industry)</p>
+                <p class="card-text"> @Html.DisplayFor(model => model.Industry)</p>
+                <p class="card-text"> @Html.DisplayFor(model => model.Catagory)</p>
                 <h5 class="card-title"> @Html.DisplayFor(model => model.MachineName)</h5>
                 <p class="card-text">2008.</p>
                 <h4 class="card-text">PRICE:  @Html.DisplayFor(model => model.Price)/ Month</h4>
                 <p class="card-text">CITY:   @Html.DisplayFor(model => model.City) </p>
-                <p class="card-text">SELLER PHONE NUMBER:  @Html.DisplayFor(model => model.PhoneNumber) </p>
-                <p class="card-text">SELLER PHONE EMAIL:  @Html.DisplayFor(model => model.Email) </p>
+                @if (User.Identity.Name != Model.Email)
+                {
+                    <a href="~/Home/Rent?CustomerEmail=@User.Identity.Name&SellerEmail=@Html.DisplayFor(model => model.Email)&MachineID=@Html.DisplayFor(model => model.MachineID)">Rent</a>
+                }
+
             </div>
         </div>
     </div>

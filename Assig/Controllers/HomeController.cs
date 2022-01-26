@@ -14,18 +14,21 @@ namespace Assig.Controllers
         }
         public ActionResult About()
         {
+            ViewBag.NotificationCount = getNotificationCount();
             ViewBag.Message = "Your application description page.";
             return View();
         }
 
         public ActionResult Contact()
         {
+            ViewBag.NotificationCount = getNotificationCount();
             ViewBag.Message = "Your contact page.";
             return View();
         }
         public ActionResult Home()
         {
             var machines = _context.Machine.Where(temp=>temp.Available==true).ToList();
+            ViewBag.NotificationCount = getNotificationCount();
             return View(machines);
         }
         public ActionResult Search(string searchString)
@@ -35,7 +38,8 @@ namespace Assig.Controllers
             {
                 ViewBag.w = searchString;
                 var machineSearched = machines.Where(temp => temp.MachineName.Contains(searchString) || temp.Industry.Contains(searchString) && temp.Available==true).ToList();
-                return View("Home", machineSearched);
+                return RedirectToAction("Search", "Home",new { });
+                //return View("Home", machineSearched);
             }
             return View("Home",machines);
         }
@@ -47,6 +51,7 @@ namespace Assig.Controllers
         public ActionResult Create(Machine m)
         {
             string userName = User.Identity.Name;
+            ViewBag.NotificationCount = getNotificationCount();
             m.Email = userName;
             _context.Machine.Add(m);
             _context.SaveChanges();
@@ -54,6 +59,7 @@ namespace Assig.Controllers
         }
         public ActionResult Details(int id)
         {
+            ViewBag.NotificationCount = getNotificationCount();
             var ma = _context.Machine.Where(temp => temp.MachineID == id).FirstOrDefault();
             return View(ma);
         }
@@ -66,6 +72,7 @@ namespace Assig.Controllers
         }
         public ActionResult Edit(int id)
         {
+            ViewBag.NotificationCount = getNotificationCount();
             var ma = _context.Machine.Where(temp => temp.MachineID == id).FirstOrDefault();
             return View(ma);
         }
@@ -81,6 +88,7 @@ namespace Assig.Controllers
         }
         public ActionResult Personal()
         {
+            ViewBag.NotificationCount = getNotificationCount();
             string userName=User.Identity.Name;
             var machine = _context.Machine.Where(temp => temp.Email==userName).ToList();
             return View(machine);
@@ -98,10 +106,48 @@ namespace Assig.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 ViewBag.w = searchString;
-                var machineSearched = machines.Where(temp =>  temp.Industry.Contains(searchString) && temp.Available == true).ToList();
+                var machineSearched = machines.Where(temp =>  temp.Catagory.Contains(searchString) && temp.Available == true).ToList();
                 return View("Home", machineSearched);
             }
             return View("Home", machines);
+        }
+        public ActionResult Notification()
+        {
+            var Notify = _context.Notification.Where(temp => temp.Seen == false && temp.OwnerEmail == User.Identity.Name).ToList();
+            int count = 0;
+            foreach (var temp in Notify)
+            {
+                count++;
+                temp.Seen=true;
+            }
+            ViewBag.NotificationCount = count;
+            //Session["NotificationCount"] = count;
+            _context.SaveChanges();
+            return View(Notify);
+        }
+        public ActionResult Rent(string CustomerEmail, string SellerEmail, int MachineID)
+        {
+            var tempo=_context.Machine.Where(temp => temp.MachineID == MachineID).FirstOrDefault();
+            ViewBag.CustomerEmail = CustomerEmail;
+            ViewBag.SellerEmail = SellerEmail;
+            ViewBag.MachineID = MachineID;
+            Notification n = new Notification();
+            n.CustomerEmail = CustomerEmail;
+            n.OwnerEmail = SellerEmail;
+            n.MachineID = MachineID;
+            _context.Notification.Add(n);
+            _context.SaveChanges();
+            return RedirectToAction("Home");
+        }
+        public int getNotificationCount()
+        {
+            var Notify = _context.Notification.Where(temp => temp.Seen == false && temp.OwnerEmail == User.Identity.Name).ToList();
+            int count = 0;
+            foreach (var temp in Notify)
+            {
+                count++;
+            }
+            return count;
         }
     }
 }

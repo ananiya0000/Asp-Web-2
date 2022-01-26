@@ -14,10 +14,10 @@
         </div>
         <div class="d-flex justify-content-center">
 
-            <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="/Search/" style="padding-right:25px">
+            <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="/Home/Search/" style="padding-right:25px">
                 <div class="d-flex">
                     <input style="width: 600px;" name="searchString" type="text" class="form-control" placeholder="Search for a machine..." aria-autocomplete="both" />
-                    <button class="btn btn-warning my-2 my-sm-0" type="submit"><i class="bi bi-search">Search</i></button>
+                    <button class="btn btn-warning my-2 my-sm-0" type="submit" ><i class="bi bi-search">Search</i></button>
                 </div>
             </form>
         </div>
@@ -60,18 +60,19 @@
 
                     <div class="col-sm-7">
                         <div class="card-body">
+                            <p class="card-text">@item.Catagory</p>
                             <p class="card-text">@item.Industry</p>
                             <h5 class="card-title">@item.MachineName</h5>
                             <p class="card-text">2008.</p>
                             <h4 class="card-text">ETB @item.Price / Month</h4>
                             <p class="card-text">@item.City </p>
                             <p class="card-text">@item.PhoneNumber </p>
-                         
+
                             <a href="/Home/Details/@item.MachineID" class="stretched-link"></a>
                         </div>
                     </div>
                     <div class="col-sm-5">
-                        <img class="card-img" height="200" src="https://www.thebalancesmb.com/thmb/IKSdhemuLnxl1GZ0hWYUesJ7ozw=/640x640/smart/filters:no_upscale()/escavation-921233_960_720-57a2715c3df78c327648cd18.jpg" alt="Suresh Dasari Card">
+                        <img class="card-img" height="200" src=@item.ImageUrl alt="Suresh Dasari Card">
                     </div>
                 </div>
             </div>

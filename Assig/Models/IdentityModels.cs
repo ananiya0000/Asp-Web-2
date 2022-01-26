@@ -21,6 +21,7 @@ namespace Assig.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public virtual DbSet<Machine> Machine { get; set; }
+        public virtual DbSet<Notification> Notification { get; set; }
         public ApplicationDbContext()
             : base("machinerentalsystem", throwIfV1Schema: false)
         {
