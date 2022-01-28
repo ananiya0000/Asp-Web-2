@@ -38,8 +38,8 @@ namespace Assig.Controllers
             {
                 ViewBag.w = searchString;
                 var machineSearched = machines.Where(temp => temp.MachineName.Contains(searchString) || temp.Industry.Contains(searchString) && temp.Available==true).ToList();
-                return RedirectToAction("Search", "Home",new { });
-                //return View("Home", machineSearched);
+                //return RedirectToAction("Search", "Home",new { });
+                return View("Home",machineSearched);
             }
             return View("Home",machines);
         }
