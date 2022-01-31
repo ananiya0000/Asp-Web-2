@@ -68,7 +68,7 @@ namespace Assig.Controllers
             var ma = _context.Machine.Where(temp => temp.MachineID == id).FirstOrDefault();
             _context.Machine.Remove(ma);
             _context.SaveChanges();
-            return RedirectToAction("Home");
+            return RedirectToAction("Personal");
         }
         public ActionResult Edit(int id)
         {
