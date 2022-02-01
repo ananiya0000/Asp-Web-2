@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using System.Web;
+using System.IO;
 
 namespace Assig.Controllers
 {
@@ -48,8 +50,26 @@ namespace Assig.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Machine m)
+        public ActionResult Create(Machine m, HttpPostedFileBase ImageFile, HttpPostedFileBase ImageFile1, HttpPostedFileBase ImageFile2)
         {
+            var file = Request.Files["ImageFile"];
+            var file1 = Request.Files["ImageFile1"];
+            var file2 = Request.Files["ImageFile2"];
+            using (var ms = new MemoryStream())
+            {
+                file.InputStream.CopyTo(ms);
+                m.Image = ms.ToArray();
+            }
+            using (var ms = new MemoryStream())
+            {
+                file1.InputStream.CopyTo(ms);
+                m.Image1 = ms.ToArray();
+            }
+            using (var ms = new MemoryStream())
+            {
+                file2.InputStream.CopyTo(ms);
+                m.Image2 = ms.ToArray();
+            }
             string userName = User.Identity.Name;
             ViewBag.NotificationCount = getNotificationCount();
             m.Email = userName;

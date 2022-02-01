@@ -18,7 +18,12 @@ namespace Assig.Models
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string City { get; set; }
-        public string ImageUrl { get; set; }
+        [Required]
+        public byte[] Image { get; set; }
+        [Required]
+        public byte[] Image1 { get; set; }
+        [Required]
+        public byte[] Image2 { get; set; }
         public bool Available { get; set; }
     }
 }

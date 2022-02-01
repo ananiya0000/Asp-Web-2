@@ -54,6 +54,17 @@
 
         @foreach (var item in Model)
         {
+            byte[] image = item.Image;
+            string contentType = "image/jpeg";
+            ViewBag.imageSrc = string.Format("data:{0};base64,{1}", contentType, Convert.ToBase64String(image));
+
+            //byte[] image1 = item.Image1;
+            //string contentType1 = "image/jpeg";
+            //ViewBag.imageSrc1 = string.Format("data:{0};base64,{1}", contentType1, Convert.ToBase64String(image1));
+
+            //byte[] image2 = item.Image2;
+            //string contentType2 = "image/jpeg";
+            //ViewBag.imageSrc2 = string.Format("data:{0};base64,{1}", contentType2, Convert.ToBase64String(image2));
             <!-- LISTING SECTION-->
             <div class="card mb-2" style="width: 800px; height: 300px; color: dimgray">
                 <div class="row no-gutters mt-3">
@@ -72,7 +83,7 @@
                         </div>
                     </div>
                     <div class="col-sm-5">
-                        <img class="card-img" height="200" src=@item.ImageUrl alt="Suresh Dasari Card">
+                        <img class="card-img" height="200" src=@ViewBag.imageSrc alt="Suresh Dasari Card">
                     </div>
                 </div>
             </div>
