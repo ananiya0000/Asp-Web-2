@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<Assig.Models.Notification>
 
 @{
-    ViewBag.Title = "Notification";
+    ViewBag.Title = "RequestHistory";
 }
 
-<h2>Notification</h2>
+<h2>RequestHistory</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -14,14 +17,20 @@
         <th>
             @Html.DisplayNameFor(model => model.OwnerEmail)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.MachineID)
-        </th>*@
         <th>
-            MachineName
+            @Html.DisplayNameFor(model => model.MachineID)
         </th>
         <th>
-            PhoneNumber
+            Catagory
+        </th>
+        <th>
+            Industry
+        </th>
+        <th>
+            Machine Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seen)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RequestDate)
@@ -36,15 +45,20 @@
     <td>
         @Html.DisplayFor(modelItem => item.OwnerEmail)
     </td>
-    @*<td>
-            @Html.DisplayFor(modelItem => item.MachineID)
-
-        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.MachineID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Machine.Catagory)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Machine.Industry)
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.Machine.MachineName)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Machine.PhoneNumber)
+        @Html.DisplayFor(modelItem => item.Seen)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.RequestDate)
@@ -53,4 +67,3 @@
 }
 
 </table>
-

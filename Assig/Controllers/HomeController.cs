@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System.Web;
 using System.IO;
+using System;
 
 namespace Assig.Controllers
 {
@@ -30,6 +31,7 @@ namespace Assig.Controllers
         public ActionResult Home()
         {
             var machines = _context.Machine.Where(temp=>temp.Available==true).ToList();
+            machines.Reverse();
             ViewBag.NotificationCount = getNotificationCount();
             return View(machines);
         }
@@ -39,7 +41,7 @@ namespace Assig.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 ViewBag.w = searchString;
-                var machineSearched = machines.Where(temp => temp.MachineName.Contains(searchString) || temp.Industry.Contains(searchString) && temp.Available==true).ToList();
+                var machineSearched = machines.Where(temp => temp.MachineName.Contains(searchString) || temp.Catagory.Contains(searchString)|| temp.Industry.Contains(searchString) && temp.Available==true).ToList();
                 //return RedirectToAction("Search", "Home",new { });
                 return View("Home",machineSearched);
             }
@@ -155,6 +157,7 @@ namespace Assig.Controllers
             n.CustomerEmail = CustomerEmail;
             n.OwnerEmail = SellerEmail;
             n.MachineID = MachineID;
+            n.RequestDate = DateTime.Now;
             _context.Notification.Add(n);
             _context.SaveChanges();
             return RedirectToAction("Home");
@@ -168,6 +171,12 @@ namespace Assig.Controllers
                 count++;
             }
             return count;
+        }
+        public ActionResult RequestHistory()
+        {
+            var Not = _context.Notification.ToList();
+            Not.Reverse();
+            return View(Not);
         }
     }
 }

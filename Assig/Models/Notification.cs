@@ -15,5 +15,6 @@ namespace Assig.Models
         public int MachineID { get; set; }
         public virtual Machine Machine { get; set; }
         public bool Seen { get; set; }
+        public Nullable<DateTime> RequestDate { get; set; }
     }
 }

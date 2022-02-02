@@ -22,9 +22,6 @@
             </form>
         </div>
     </div>
-
-
-
 </section>
 
 <h2 class="mt-4 text-center" style="color: dimgray"> Machines for Rent</h2>
@@ -33,7 +30,7 @@
 </div>
 <div class="d-flex">
     <!-- Category SECTION-->
-    <div style="width: 900px; padding: 30px" class="">
+    <div style="width: 20%; padding: 30px" class="">
         <h3 style="color: darkgray; margin-bottom: 10px" > Category</h3>
         <div class="d-flex flex-column">
             <a class="btn-outline-secondary mb-1" style="margin-left: 30px" href="/Home/Catagory/?searchString=">All Catagories</a>
@@ -49,7 +46,7 @@
 
     </div>
 
-    <div class="row d-flex justify-content-center " style="background-color: #f0f2f5">
+    <div class="row d-flex justify-content-center " style="background-color: #f0f2f5;width:80%;">
 
 
         @foreach (var item in Model)
@@ -66,7 +63,7 @@
             //string contentType2 = "image/jpeg";
             //ViewBag.imageSrc2 = string.Format("data:{0};base64,{1}", contentType2, Convert.ToBase64String(image2));
             <!-- LISTING SECTION-->
-            <div class="card mb-2" style="width: 800px; height: 300px; color: dimgray">
+            <div class="card mb-2" style="width: 80%; height: auto; color: dimgray">
                 <div class="row no-gutters mt-3">
 
                     <div class="col-sm-7">
@@ -77,13 +74,13 @@
                             <p class="card-text">2008.</p>
                             <h4 class="card-text">ETB @item.Price / Month</h4>
                             <p class="card-text">@item.City </p>
-                            <p class="card-text">@item.PhoneNumber </p>
+                            @*<p class="card-text">@item.PhoneNumber </p>*@
 
                             <a href="/Home/Details/@item.MachineID" class="stretched-link"></a>
                         </div>
                     </div>
                     <div class="col-sm-5">
-                        <img class="card-img" height="200" src=@ViewBag.imageSrc alt="Suresh Dasari Card">
+                        <img class="card-img" height="300" src=@ViewBag.imageSrc alt="Suresh Dasari Card">
                     </div>
                 </div>
             </div>
